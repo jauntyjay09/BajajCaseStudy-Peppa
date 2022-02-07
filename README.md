@@ -1,4 +1,27 @@
-# Peppa
+# Project Peppa
+
+# Case-Study_PersonalFinanceApp
+This Case Study is on Angular based Personal Finance Application to manage and assist clients in their monthly budgeting and finance.
+
+# Modules Included
+1. Login/Signup page
+2. Landing User Page
+3. Smart Calculator to divide your income based on percentage levels
+4. Stocks and Crypto Management module
+5. Bills Module to manage monthly subscribtions 
+
+# Features Added 
+1. Input Validations
+2. Lazy Loading
+3. Auth Guard
+
+# Installation required
+1. Bootstrap
+2. Angular material
+
+
+# Angular Documentation
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.3.
 
