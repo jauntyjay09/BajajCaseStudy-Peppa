@@ -2,7 +2,7 @@
     <div class="row ">
       <div class="card  mx-auto col-sm-10" style="margin-top: 2em;margin-bottom: 5em;" >
           <div class="card-body">
-              <h2 class="text-center display-6 card-title">Welcome Jay....!</h2>
+              <h2 class="text-center display-6 card-title">Welcome {{username}}....!</h2>
               <div class="col-md-2 mx-auto im ma">
                   <img src="../../../assets/images/cbot.jpg">
                 </div>
@@ -49,9 +49,9 @@
                       
                     </div>
              
-            <h2 class="card-text text-dark" >Your this Month Bill Value is {{billvalue}} INR </h2>
+            <!-- <h2 class="card-text text-dark" >Your this Month Bill Value is {{billvalue}} INR </h2> -->
             <div class="text-center alert alert-info" *ngIf='earn>0' role="alert">
-              You are currently on {{0 + (earn * (100 - (rf + sf + mf + em ) ))/100 - billvalue}} INR for this Month !!
+              You are currently on {{0 + (earn * (100 - (rf + sf + mf + em ) ))/100 }} INR for this Month !!
             </div>
           </div>
         </div>

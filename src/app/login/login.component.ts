@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl,FormGroup,Validators} from "@angular/forms";
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,10 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  loginDone:boolean;
+  tokens:string;
+  name:string;
+  constructor(private router:Router,private http:HttpClient) { }
 
   loginForm = new FormGroup({
     email:new FormControl('',[Validators.required,Validators.email]),
@@ -21,21 +25,40 @@ export class LoginComponent implements OnInit {
 
   
   login(){
-    if(this.loginForm.value.email='jay@gmail.com' && this.loginForm.value.password =='123'){
-      alert('login Successfull ');
-      this.loginForm.reset();
-      localStorage.setItem('token',"fbfeytfyeigdyge6734r564t7rbdf7n4tr67bf7eufdchgrfrt46yedhbdfttr5ftdeghsxb");
-      localStorage.setItem('userType','Client');
-      this.router.navigate(['users/buddy']);
+    const http$ = this.http.post<any>('http://localhost:3000/api/user/login',{
+      "email":this.loginForm.value["email"],
+      "password":this.loginForm.value["password"]
+    });
+    http$.subscribe( res => {
+        this.loginDone=res.chk
+        this.tokens=res.token;
+        this.name=res.name;
+          //console.log('done');
+    },
+    error => {
+      alert('Invalid Credentials ');
+    },
+
+    () => {
+      if(this.loginDone){
+        alert("Login Successfull ");
+        this.loginForm.reset();
+        localStorage.setItem('token',this.tokens);
+        localStorage.setItem('userType',this.name);
+        this.router.navigate(['users/buddy']);
+        //this.signdone=true;
+        
+      }
+      else{
+        alert('Invalid credentials');
+      }
     }
-    else{
-      alert("Invalid Creds Used");
-    }
+    );
   }
 
   ngOnInit(): void {
     //delete all tokens
-    localStorage.clear();
+    //localStorage.clear();
   }
 
 }

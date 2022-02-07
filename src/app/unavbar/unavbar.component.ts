@@ -12,6 +12,8 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class UnavbarComponent implements OnInit{
 
+  username=String(localStorage.getItem('userType'));
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),

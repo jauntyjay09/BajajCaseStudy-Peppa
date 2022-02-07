@@ -6,13 +6,13 @@
     <mat-toolbar class="navbar-brand">
     
         <img src="../../../assets/images/avatar.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-         <br>Jay
+         <br>{{username}}
     
     </mat-toolbar>
     <mat-nav-list style="padding: 1em;">
       <a class="card bg-info" style="margin-bottom: 1em;" mat-list-item routerLink="users/buddy">Buddy</a>
-      <a class="card bg-warning" style="margin-bottom: 1em;"mat-list-item routerLink="users/bills">Bills</a>
-      <a class="card bg-success"style="margin-bottom: 1em; font-color:white;" mat-list-item routerLink="users/funds">Funds</a>
+      <a class="card bg-warning" style="margin-bottom: 1em;"mat-list-item routerLink="users/bills">Liability</a>
+      <a class="card bg-success"style="margin-bottom: 1em; font-color:white;" mat-list-item routerLink="users/funds">Assets</a>
       <a class="card bg-danger" style="margin-bottom: 1em;"mat-list-item  (click)='logout()'>Logout</a>
     </mat-nav-list>
   </mat-sidenav>

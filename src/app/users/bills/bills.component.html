@@ -8,6 +8,38 @@
               <h2 class="text-center display-6 card-title">Manage Bills</h2>
              
             <h6 class="text-center card-subtitle mb-2 text-muted">Lets Clear Up</h6>
+
+            <p class=" text-center">
+              <a class=" btn btn-warning" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Add 
+              </a>
+            </p>
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body">
+                <div class="mb-3 row">
+                  <h4  class="display-6 col-sm-4 col-form-label">Icon : </h4>
+                  <div class="col-sm-2">
+                    <input [(ngModel)]="icon" type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="mb-3 row">
+                  <h4  class="display-6 col-sm-4 col-form-label">Name : </h4>
+                  <div class="col-sm-2">
+                    <input [(ngModel)]="name" type="text" class="form-control">
+                  </div>
+                </div>
+              
+                <div class="mb-3 row">
+                  <h4  class="display-6 col-sm-4 col-form-label">Amount : </h4>
+                  <div class="col-sm-2">
+                    <input [(ngModel)]="amount" type="text" class="form-control">
+                  </div>
+                </div>
+                <a class="btn btn-success" (click)="onAdd()">
+                  <i class="maerial-icons">Insert</i>
+                </a>
+              </div>
+            </div>
             <br>
             <table class="table table-hover table-borderless">
               <thead>
@@ -19,60 +51,20 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                    <td class="navbar-brand">
-                      <img src="../../../assets/images/netflix.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-                      Netflix 
-                    </td>
-                  
-                  <td>200.00</td>
-               
-                </tr>
-                <tr>
-                    <td class="navbar-brand">
-                      <img src="../../../assets/images/jio.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                      Jio
-                    </td>
-                  
-                  <td>500.00</td>
-               
-                </tr>
-                <tr>
+                <tr *ngFor="let bil of bills">
                   <td class="navbar-brand">
-                    <img src="../../../assets/images/hotstar.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-                    Hotstar
+                    <img [src]=bil.icon width="30" height="30" class="d-inline-block align-top" alt="">
+                    {{bil.liabName}}
                   </td>
                 
-                <td>400.00</td>
-             
-              </tr>
-              <tr>
-                <td class="navbar-brand">
-                  <img src="../../../assets/images/prime.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-                  Prime 
+                <td>{{bil.amount}}</td> 
+                <td>
+                  <a class="btn btn-danger" (click)="onDelete(bil._id)">
+                    <i class="maerial-icons">delete</i>
+                  </a>
                 </td>
-              
-              <td>300.00</td>
-           
-            </tr>
-            <tr>
-              <td class="navbar-brand">
-                <img src="../../../assets/images/broad.png" width="30" height="30" class="d-inline-block align-top" alt="">
-               Broadband
-              </td>
-            
-            <td>600.00</td>
-         
-          </tr>
-          <tr>
-            <td class="navbar-brand">
-              <img src="../../../assets/images/slice.png" width="30" height="30" class="d-inline-block align-top" alt="">
-             Slice  
-            </td>
-          
-          <td>5000.00</td>
-       
-        </tr>
+                </tr>
+                
               </tbody>
             </table>
             

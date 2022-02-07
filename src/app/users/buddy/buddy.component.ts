@@ -9,6 +9,8 @@ import {FormsModule} from '@angular/forms';
 })
 export class BuddyComponent implements OnInit {
 
+  username=String(localStorage.getItem('userType'));
+
   earn=0;
   em=0;
   mf=0;

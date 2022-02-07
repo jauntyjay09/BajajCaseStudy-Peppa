@@ -8,119 +8,79 @@
               <h2 class="text-center display-6 card-title">Manage Portfolio</h2>
              
             <h6 class="text-center card-subtitle mb-2 text-muted">Keep eye on it</h6>
+
+            <p class=" text-center">
+              <a class=" btn btn-warning" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Add 
+              </a>
+            </p>
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body">
+                <div class="mb-3 row">
+                  <h4  class="display-6 col-sm-4 col-form-label">Icon : </h4>
+                  <div class="col-sm-2">
+                    <input [(ngModel)]="icon" type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="mb-3 row">
+                  <h4  class="display-6 col-sm-4 col-form-label">Name : </h4>
+                  <div class="col-sm-2">
+                    <input [(ngModel)]="name" type="text" class="form-control">
+                  </div>
+                </div>
+              
+                <div class="mb-3 row">
+                  <h4  class="display-6 col-sm-4 col-form-label">Type : </h4>
+                  <div class="col-sm-2">
+                    <input [(ngModel)]="type" type="text" class="form-control">
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <h4  class="display-6 col-sm-4 col-form-label">Amount : </h4>
+                  <div class="col-sm-2">
+                    <input [(ngModel)]="amount" type="text" class="form-control">
+                  </div>
+                </div>
+                <a class="btn btn-success" (click)="onAdd()">
+                  <i class="maerial-icons">Insert</i>
+                </a>
+              </div>
+            </div>
             <br>
             <table class="table caption-top table-hover ">
-                <caption>Mutual Funds</caption>
-                <thead>
-                  <tr>
-                   
-                    <th scope="col">Fund Name</th>
-                    <th scope="col">Amount Invested</th>
-                    <th scope="col">Current Value</th>
-                    
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                      <td class="navbar-brand">
-                        <img src="../../../assets/images/axis.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-                        Axis Bluechip Fund 
-                      </td>
-                    
-                    <td>10800.00</td>
-                    <td>15000.00</td>
-                  </tr>
-                  <tr>
-                    <td class="navbar-brand">
-                      <img src="../../../assets/images/sbi.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                      SBI Small Cap Fund
-                    </td>
-                  
-                  <td>25000.00</td>
-                  <td>30000.00</td>
-                </tr>
-               
-                </tbody>
-              </table>
-              
-               <br>
-               <table class="table caption-top table-hover ">
-                <caption>Emergency Funds</caption>
-                <thead>
-                  <tr>
-                   
-                    <th scope="col">Bank </th>
-                    <th scope="col">Current Amount </th>
-                    <th scope="col">Target Value</th>
-                    
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                      <td class="navbar-brand">
-                        <img src="../../../assets/images/hdfc.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                        HDFC
-                      </td>
-                    
-                    <td>107000.00</td>
-                    <td>300000.00</td>
-                  </tr>
                 
-                </tbody>
-              </table>
-              <br>
-              <table class="table caption-top table-hover ">
-                <caption>Stocks and Cryptos</caption>
                 <thead>
                   <tr>
                    
                     <th scope="col">Asset Name</th>
-                    <th scope="col">Amount Invested</th>
-                    <th scope="col">Current Value</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Amount</th>
                     
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr *ngFor="let fun of funds">
                       <td class="navbar-brand">
-                        <img src="../../../assets/images/shiba.png" width="40" height="30" class="d-inline-block align-top" alt="">
-                        Shiba Inu
+                        <img [src]=fun.icon width="30" height="30" class="d-inline-block align-top" alt="">
+                        {{fun.assetName}}
                       </td>
                     
-                    <td>2000.00</td>
-                    <td>3500.00</td>
-                  </tr>
-                  <tr>
-                    <td class="navbar-brand">
-                      <img src="../../../assets/images/itc.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                      ITC
-                    </td>
-                  
-                  <td>1217.00</td>
-                  <td>1526.00</td>
-                </tr>
-                <tr>
-                    <td class="navbar-brand">
-                      <img src="../../../assets/images/wipro.png" width="40" height="30" class="d-inline-block align-top" alt="">
-                      WIPRO
-                    </td>
-                  
-                  <td>370.00</td>
-                  <td>1141.00</td>
-                </tr>
+                    <td>{{fun.type}}</td>
+                    <td>{{fun.amount}}</td>
 
-                  <tr>
-                    <td class="navbar-brand">
-                      <img src="../../../assets/images/idea.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                      IDEA
+                    <td>
+                      <a class="btn btn-danger" (click)="onDelete(fun._id)">
+                        <i class="maerial-icons">delete</i>
+                      </a>
                     </td>
-                  
-                  <td>40.00</td>
-                  <td>129.00</td>
-                </tr>
+                  </tr>
+                 
                
                 </tbody>
               </table>
+              
+              
             
              
           </div>
