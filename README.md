@@ -3,6 +3,18 @@
 # Case-Study_PersonalFinanceApp
 This Case Study is on Angular based Personal Finance Application to manage and assist clients in their monthly budgeting and finance.
 
+# Installation and Running project
+
+1. Download the Zip file from the link below 
+  https://github.com/jauntyjay09/BajajCaseStudy-Peppa
+2. Extract the files in one folder
+3. Open cmd/terminal with the same directory as the src folder and run below command -
+   “Ng serve” 
+4.  Now open another terminal inside server folder and run below command-
+    “Npm start”
+5. Open http://localhost:4200/login to Use the Application.
+
+
 # Modules Included
 1. Login/Signup page
 2. Landing User Page
@@ -14,10 +26,18 @@ This Case Study is on Angular based Personal Finance Application to manage and a
 1. Input Validations
 2. Lazy Loading
 3. Auth Guard
+4. Jwt tokenisation
+5. Hashing
+6. RestFul Api
 
 # Installation required
 1. Bootstrap
 2. Angular material
+3. Nodejs
+4. MongoDb
+5. Express
+6. Cors
+
 
 
 # Angular Documentation
